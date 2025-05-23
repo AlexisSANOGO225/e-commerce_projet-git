@@ -1,20 +1,19 @@
 export const loginAdmin = async (credentials) => {
   try {
-    const response = await fetch('http://localhost:3000/api/admin/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(credentials),
-    });
+    const adminCredentials = {
+      email: 'admin@space.com',
+      password: 'admin123',
+    };
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(data.message || 'Login failed');
+    if (credentials.email !== adminCredentials.email || credentials.password !== adminCredentials.password) {
+      throw new Error('Invalid credentials');
     }
 
-    return data;
+    return {
+      token: 'fake-admin-token',
+      email: credentials.email,
+      role: 'admin'
+    };
   } catch (error) {
     throw error;
   }
