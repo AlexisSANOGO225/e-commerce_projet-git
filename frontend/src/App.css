@@ -40,3 +40,23 @@
 .read-the-docs {
   color: #888;
 }
+
+.product-th {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-align: left;
+  font-weight: 700;
+  color: #374151;
+  font-size: 1.125rem;
+}
+.product-td {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-align: left;
+  font-size: 1rem;
+  color: #111827;
+}
