@@ -50,7 +50,7 @@ const AdminLogin = () => {
         <div className="flex items-center mb-6">
           <img 
             className="w-16 h-16" 
-            src={require('../assets/login-icon.png')} 
+            src={new URL('../assets/login-icon.png', import.meta.url).href} 
             alt="Login"
           />
         </div>
