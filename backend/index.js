@@ -4,6 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
+const orderRoutes = require('./routes/orderRoutes');
  
 const app = express();
 app.use(cors());
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/orders', orderRoutes);
  
 app.listen(process.env.PORT, () =>
   console.log(`Server running on port ${process.env.PORT}`)
