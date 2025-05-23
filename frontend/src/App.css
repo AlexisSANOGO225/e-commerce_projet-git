@@ -1,7 +1,5 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
   text-align: center;
 }
 
@@ -39,4 +37,61 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.product-th {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-align: left;
+  font-weight: 700;
+  color: #374151;
+  font-size: 1.125rem;
+}
+.product-td {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  text-align: left;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.home-btn {
+  background: #2563eb;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1.5rem 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px 0 rgba(37,99,235,0.10);
+  min-width: 220px;
+  text-align: center;
+  margin-bottom: 1rem;
+  transition: background 0.2s, box-shadow 0.2s;
+  display: inline-block;
+}
+.home-btn:hover {
+  background: #1d4ed8;
+  box-shadow: 0 12px 32px 0 rgba(37,99,235,0.18);
+}
+
+.nav-link {
+  color: #374151;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.75rem;
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none;
+}
+.nav-link:hover {
+  background: #f1f5f9;
+  color: #2563eb;
+}
+.nav-link-active {
+  background: #2563eb;
+  color: #fff !important;
 }
