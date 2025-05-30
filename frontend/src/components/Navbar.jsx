@@ -20,22 +20,26 @@ const Navbar = () => {
       >
         Accueil
       </NavLink>
-      <NavLink
-        to="/products"
-        className={({ isActive }) =>
-          isActive ? "nav-link nav-link-active" : "nav-link"
-        }
-      >
-        Produits
-      </NavLink>
-      <NavLink
-        to="/orders"
-        className={({ isActive }) =>
-          isActive ? "nav-link nav-link-active" : "nav-link"
-        }
-      >
-        Commandes
-      </NavLink>
+      {isLoggedIn && (
+        <>
+          <NavLink
+            to="/products"
+            className={({ isActive }) =>
+              isActive ? "nav-link nav-link-active" : "nav-link"
+            }
+          >
+            Produits
+          </NavLink>
+          <NavLink
+            to="/orders"
+            className={({ isActive }) =>
+              isActive ? "nav-link nav-link-active" : "nav-link"
+            }
+          >
+            Commandes
+          </NavLink>
+        </>
+      )}
       <NavLink
         to="/users"
         className={({ isActive }) =>

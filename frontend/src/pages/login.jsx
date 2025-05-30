@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -14,7 +16,7 @@ export default function Login() {
       const res = await axios.post("/api/users/login", form);
       localStorage.setItem("token", res.data.token);
       setMessage("Connexion réussie !");
-      // Rediriger vers la page d'accueil ou dashboard ici si besoin
+      navigate("/products"); // Redirection après connexion
     } catch (err) {
       setMessage(err.response?.data?.message || "Erreur");
     }
