@@ -1,24 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs"); // <-- AJOUTE cette ligne
+const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 const userController = require("../controllers/userController");
-
-// GET all users
-router.get("/", userController.getAllUsers);
-
-// GET user by ID
-router.get("/:id", userController.getUserById);
-
-// POST create user
-router.post("/", userController.createUser);
-
-// PUT update user
-router.put("/:id", userController.updateUser);
-
-// DELETE user
-router.delete("/:id", userController.deleteUser);
+const { auth, isAdmin } = require("../middleware/authMiddleware");
 
 // Inscription
 router.post("/register", async (req, res) => {
@@ -53,5 +39,20 @@ router.post("/login", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
+// GET all users (admin only)
+router.get("/", auth, isAdmin, userController.getAllUsers);
+
+// GET user by ID (admin or self)
+router.get("/:id", auth, userController.getUserById);
+
+// POST create user (admin only)
+router.post("/", auth, isAdmin, userController.createUser);
+
+// PUT update user (admin or self)
+router.put("/:id", auth, userController.updateUser);
+
+// DELETE user (admin only)
+router.delete("/:id", auth, isAdmin, userController.deleteUser);
 
 module.exports = router;
