@@ -11,7 +11,11 @@ import Home from "./pages/Home";
 import "./App.css";
 import Login from "./pages/login";
 import Register from "./pages/register";
+<<<<<<< HEAD
 // Fonction utilitaire pour vérifier la connexion
+=======
+
+>>>>>>> register
 const isLoggedIn = () => !!localStorage.getItem("token");
 
 export default function App() {
@@ -28,10 +32,13 @@ export default function App() {
           path="/products"
           element={isLoggedIn() ? <ProductList /> : <Navigate to="/login" />}
         />
+<<<<<<< HEAD
         <Route
           path="/orders"
           element={isLoggedIn() ? <OrderList /> : <Navigate to="/login" />}
         />
+=======
+>>>>>>> register
         <Route path="/products/new" element={<ProductCreate />} />
         <Route path="/products/:id/edit" element={<ProductEdit />} />
         <Route path="/users" element={<UserList />} />
@@ -39,6 +46,21 @@ export default function App() {
         <Route path="/users/:id/edit" element={<UserEdit />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+<<<<<<< HEAD
+=======
+        <Route
+          path="/orders"
+          element={
+            isLoggedIn() ? (
+              <div className="p-8 text-2xl text-gray-700">
+                Gestion des commandes à venir...
+              </div>
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+>>>>>>> register
       </Routes>
     </>
   );
